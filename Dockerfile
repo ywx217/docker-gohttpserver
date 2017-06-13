@@ -10,10 +10,8 @@ RUN wget -O gohttpserver "https://github.com/codeskyblue/gohttpserver/releases/d
     && chmod +x gohttpserver \
     && mkdir files
 
-ADD .ghs.yml
-ADD entrypoint.sh
-RUN cp .ghs.yml files/
-
+COPY .ghs.yml /root/files/
+COPY entrypoint.sh /root/
 
 EXPOSE 80
 ENTRYPOINT ["./entrypoint.sh"]

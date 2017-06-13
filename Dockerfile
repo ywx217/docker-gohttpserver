@@ -11,9 +11,11 @@ RUN wget -O gohttpserver "https://github.com/codeskyblue/gohttpserver/releases/d
     && mkdir files
 
 COPY .ghs.yml /root/files/
-COPY entrypoint.sh /root/
+COPY config.yml /root/
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 80
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["gohttpserver", "-r ./files/", "--addr :80", "--upload", "--auth-type http", "--auth-http user:pass"]
+ENTRYPOINT ["./gohttpserver"]
+CMD ["--conf=config.yml"]
 

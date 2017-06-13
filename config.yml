@@ -1,0 +1,5 @@
+addr: ":80"
+root: "./files/"
+title: "文件共享"
+upload: true
+cors: true

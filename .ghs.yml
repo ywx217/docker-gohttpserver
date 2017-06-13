@@ -1,0 +1,7 @@
+---
+upload: false
+delete: false
+users:
+    - email: "user"
+    delete: true
+    upload: true
